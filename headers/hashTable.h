@@ -42,7 +42,6 @@ int findSuitablePrimeNumber(float N,float loadfactor){
         i=2;
         while(num%i!=0 && i<sqrt(num)) i++;
     }
-    printf("tablo buyuklugu %d olarak secildi\n",num);
     return num;
 }
 
@@ -54,6 +53,7 @@ USER_TABLE_NODE* initializeTable(USER_TABLE_NODE*table, int M){
     if(table==NULL) return NULL;
     int i;
     for(i=0;i<M;i++){
+        table[i].password = NULL;
         table[i].userName = NULL;
         table[i].isDeleted = 0;
     }
@@ -64,11 +64,11 @@ USER_TABLE_NODE* initializeTable(USER_TABLE_NODE*table, int M){
 //inputs : table,load factor, number of elements, table size
 //table size will be calculated within findSuitablePrimeNumber;
 //return: tablo, M(table size)
-USER_TABLE * createTable(USER_TABLE *table, float loadfactor, int N){
-    float n = (float)N;
-    table->tableSize = findSuitablePrimeNumber(n,loadfactor);
-    table->table =  initializeTable(table->table,table->tableSize);
-    return table;
+USER_TABLE * createTable(USER_TABLE *TABLE, float loadfactor, int N){
+    TABLE = (USER_TABLE*) calloc(1,sizeof (USER_TABLE));
+    TABLE->tableSize = findSuitablePrimeNumber((float)N,loadfactor);
+    TABLE->table =  initializeTable(TABLE->table,TABLE->tableSize);
+    return TABLE;
 }
 
 //1. hash function
@@ -164,30 +164,31 @@ int addElementToTable(USER_TABLE *TABLE, char * userName,char * password){
 }
 
 //remove given item from table by assigning isDeleted to 1
-int removeElementFromTable(USER_TABLE *TABLE,char* userName){
-    if(TABLE==NULL) return -99;
+USER_TABLE_NODE * removeElementFromTable(USER_TABLE *TABLE,char* userName){
+    if(TABLE==NULL) return NULL;
     USER_TABLE_NODE * table=TABLE->table;
     int i = traverseTable(TABLE,userName);
     if(table[i].userName!=NULL && strcmp(userName,table[i].userName)==0 && table[i].isDeleted == 0){
         table[i].isDeleted = 1;
-        return i;
+        return &table[i];
     }
     else{
-        return -1;
+        return NULL;
     }
 }
 
 //search for given user
-//if it exists in table, print it's location
-int findUser(USER_TABLE *TABLE, char * userName){
-    if (TABLE==NULL) return -99;
+//NULL couldn't find user or table does not exist
+//USER_TABLE_NODE address = found User adress
+USER_TABLE_NODE * findUser(USER_TABLE *TABLE, char * userName){
+    if (TABLE==NULL) return NULL;
     USER_TABLE_NODE  * table = TABLE->table;
     int i = traverseTable(TABLE,userName);
     if(table[i].userName!=NULL && strcmp(userName,table[i].userName)==0 && table[i].isDeleted == 0){
-        return 0;
+        return &table[i];
     }
     else{
-        return -1;
+        return NULL;
     }
 }
 

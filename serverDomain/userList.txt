@@ -1,3 +1,1 @@
-mehmet,1234
-ali,312
-bugra,3123
+(null),(null)(null),(null)(null),(null)

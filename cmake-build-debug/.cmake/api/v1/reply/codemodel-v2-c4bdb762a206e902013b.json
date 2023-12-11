@@ -49,8 +49,8 @@
 	"kind" : "codemodel",
 	"paths" : 
 	{
-		"build" : "D:/Workspace/Server-Clien-Communication-In-C/cmake-build-debug",
-		"source" : "D:/Workspace/Server-Clien-Communication-In-C"
+		"build" : "D:/Workspace/Server-Client-Communication-In-C/cmake-build-debug",
+		"source" : "D:/Workspace/Server-Client-Communication-In-C"
 	},
 	"version" : 
 	{

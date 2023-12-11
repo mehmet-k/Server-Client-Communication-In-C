@@ -1,19 +1,9 @@
 # ninja log v5
-1	502	7239436501326272	CMakeFiles/Server_Clien_Communication_In_C.dir/main.c.obj	c4a231a6832599d5
-504	674	7239436502968439	Server_Clien_Communication_In_C.exe	22662c4826abaabe
-3	163	7239436715308429	CMakeFiles/Server_Clien_Communication_In_C.dir/main.c.obj	c4a231a6832599d5
-164	424	7239436717910044	Server_Clien_Communication_In_C.exe	22662c4826abaabe
-2	125	7239436827371533	CMakeFiles/Server_Clien_Communication_In_C.dir/main.c.obj	c4a231a6832599d5
-126	278	7239436828870762	Server_Clien_Communication_In_C.exe	22662c4826abaabe
-2	141	7239437705161526	CMakeFiles/Server_Clien_Communication_In_C.dir/main.c.obj	c4a231a6832599d5
-141	302	7239437706742763	Server_Clien_Communication_In_C.exe	22662c4826abaabe
-2	364	7239440538634923	CMakeFiles/Server_Clien_Communication_In_C.dir/main.c.obj	c4a231a6832599d5
-365	545	7239440540411205	Server_Clien_Communication_In_C.exe	22662c4826abaabe
-5	102	7239441739768406	CMakeFiles/Server_Clien_Communication_In_C.dir/main.c.obj	c4a231a6832599d5
-102	217	7239441740854509	Server_Clien_Communication_In_C.exe	22662c4826abaabe
-2	104	7239441812945266	CMakeFiles/Server_Clien_Communication_In_C.dir/main.c.obj	c4a231a6832599d5
-105	209	7239441813961634	Server_Clien_Communication_In_C.exe	22662c4826abaabe
-4	125	7239442185129474	CMakeFiles/Server_Clien_Communication_In_C.dir/main.c.obj	c4a231a6832599d5
-126	268	7239442186491206	Server_Clien_Communication_In_C.exe	22662c4826abaabe
 2	109	7239442686143585	CMakeFiles/Server_Clien_Communication_In_C.dir/main.c.obj	c4a231a6832599d5
 109	243	7239442687448809	Server_Clien_Communication_In_C.exe	22662c4826abaabe
+3	206	7240110732633124	CMakeFiles/Server_Clien_Communication_In_C.dir/main.c.obj	aca0ae8775104622
+206	423	7240110734766434	Server_Clien_Communication_In_C.exe	22662c4826abaabe
+2	125	7240113014955306	CMakeFiles/Server_Clien_Communication_In_C.dir/main.c.obj	aca0ae8775104622
+125	352	7240113017177790	Server_Clien_Communication_In_C.exe	22662c4826abaabe
+2	131	7240118844386269	CMakeFiles/Server_Clien_Communication_In_C.dir/main.c.obj	aca0ae8775104622
+132	262	7240118845558524	Server_Clien_Communication_In_C.exe	22662c4826abaabe
