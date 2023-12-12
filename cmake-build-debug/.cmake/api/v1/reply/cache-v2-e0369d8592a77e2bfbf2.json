@@ -491,7 +491,7 @@
 				}
 			],
 			"type" : "PATH",
-			"value" : "C:/Program Files (x86)/Server_Clien_Communication_In_C"
+			"value" : "C:/Program Files (x86)/Server_Client_Communication_In_C"
 		},
 		{
 			"name" : "CMAKE_LINKER",
@@ -707,7 +707,7 @@
 				}
 			],
 			"type" : "STATIC",
-			"value" : "Server_Clien_Communication_In_C"
+			"value" : "Server_Client_Communication_In_C"
 		},
 		{
 			"name" : "CMAKE_RANLIB",
@@ -1086,7 +1086,7 @@
 			"value" : "FALSE"
 		},
 		{
-			"name" : "Server_Clien_Communication_In_C_BINARY_DIR",
+			"name" : "Server_Client_Communication_In_C_BINARY_DIR",
 			"properties" : 
 			[
 				{
@@ -1098,7 +1098,7 @@
 			"value" : "D:/Workspace/Server-Client-Communication-In-C/cmake-build-debug"
 		},
 		{
-			"name" : "Server_Clien_Communication_In_C_IS_TOP_LEVEL",
+			"name" : "Server_Client_Communication_In_C_IS_TOP_LEVEL",
 			"properties" : 
 			[
 				{
@@ -1110,7 +1110,7 @@
 			"value" : "ON"
 		},
 		{
-			"name" : "Server_Clien_Communication_In_C_SOURCE_DIR",
+			"name" : "Server_Client_Communication_In_C_SOURCE_DIR",
 			"properties" : 
 			[
 				{

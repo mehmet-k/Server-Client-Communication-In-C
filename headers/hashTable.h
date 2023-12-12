@@ -3,11 +3,24 @@
 #include <math.h> 
 #include <string.h>
 
+#define BUFFER_SIZE 255
+
 typedef struct user_table_node{
     char* userName;
     char* password;
+    char* telephoneNumber;
+    char* name;
+    char* surname;
     int isDeleted;
 }USER_TABLE_NODE;
+
+typedef struct user_table_node_buffer{
+    char userName[BUFFER_SIZE];
+    char password[BUFFER_SIZE];
+    char telephoneNumber[BUFFER_SIZE];
+    char name[BUFFER_SIZE];
+    char surname[BUFFER_SIZE];
+}USER_TABLE_NODE_BUFFER;
 
 typedef struct user_table{
     USER_TABLE_NODE * table;
@@ -126,27 +139,40 @@ int traverseTable(USER_TABLE *TABLE, char userName[]){
     return i;
 }
 
+
 //at the index i of the table, initialize userName
 //and assign values userName and isDeleted
 //returns index
-int initializeElement(USER_TABLE_NODE* table, char* userName,char * password, int i){
-    table[i].userName = (char*)calloc(strlen(userName),sizeof (char));
-    table[i].password = (char*)calloc(strlen(password),sizeof (char));
-    strcpy(table[i].userName,userName);
-    strcpy(table[i].password,password);
+int initializeElement(USER_TABLE_NODE* table, USER_TABLE_NODE_BUFFER userInformations, int i){
+    table[i].userName = (char*)calloc(strlen(userInformations.userName),sizeof (char));
+    strcpy(table[i].userName,userInformations.userName);
+
+    table[i].password = (char*)calloc(strlen(userInformations.password),sizeof (char));
+    strcpy(table[i].userName,userInformations.password);
+
+    table[i].password = (char*)calloc(strlen(userInformations.telephoneNumber),sizeof (char));
+    strcpy(table[i].userName,userInformations.telephoneNumber);
+
+    table[i].password = (char*)calloc(strlen(userInformations.name),sizeof (char));
+    strcpy(table[i].userName,userInformations.name);
+
+    table[i].password = (char*)calloc(strlen(userInformations.surname),sizeof (char));
+    strcpy(table[i].userName,userInformations.surname);
+
     table[i].isDeleted = 0;
+
     return i;
 }
 
 //check if user exists, if not add it to the table
 //if return is not negative, adding user to table was successfull
-int addElementToTable(USER_TABLE *TABLE, char * userName,char * password){
+int addElementToTable(USER_TABLE *TABLE, USER_TABLE_NODE_BUFFER userInformations){
     USER_TABLE_NODE * table = TABLE->table;
-    int i = traverseTable(TABLE,userName);
+    int i = traverseTable(TABLE,userInformations.userName);
     if(table[i].userName == NULL){ //if userName at location i is NULL, place the user here
-        return initializeElement(table,userName,password,i);
+        return initializeElement(table,userInformations,i);
     }
-    else if(strcmp(table[i].userName,userName)==0){
+    else if(strcmp(table[i].userName,userInformations.userName)==0){
         if(table[i].isDeleted==1){ //if user has been deleted before,
             table[i].isDeleted=0;  //assign it as undeleted.
             return i;
@@ -161,6 +187,10 @@ int addElementToTable(USER_TABLE *TABLE, char * userName,char * password){
     else{
         return -3;
     }
+}
+
+void reAddElementToTable(USER_TABLE_NODE * user){
+    user->isDeleted = 0;
 }
 
 //remove given item from table by assigning isDeleted to 1

@@ -11,7 +11,7 @@
 # =============================================================================
 
 # =============================================================================
-# Project: Server_Clien_Communication_In_C
+# Project: Server_Client_Communication_In_C
 # Configurations: Debug
 # =============================================================================
 
@@ -40,53 +40,6 @@ include CMakeFiles/rules.ninja
 # Logical path to working directory; prefix for absolute paths.
 
 cmake_ninja_workdir = D$:/Workspace/Server-Client-Communication-In-C/cmake-build-debug/
-# =============================================================================
-# Object build statements for EXECUTABLE target Server_Clien_Communication_In_C
-
-
-#############################################
-# Order-only phony target for Server_Clien_Communication_In_C
-
-build cmake_object_order_depends_target_Server_Clien_Communication_In_C: phony || CMakeFiles/Server_Clien_Communication_In_C.dir
-
-build CMakeFiles/Server_Clien_Communication_In_C.dir/main.c.obj: C_COMPILER__Server_Clien_Communication_In_C_Debug D$:/Workspace/Server-Client-Communication-In-C/main.c || cmake_object_order_depends_target_Server_Clien_Communication_In_C
-  DEP_FILE = CMakeFiles\Server_Clien_Communication_In_C.dir\main.c.obj.d
-  FLAGS = -g -std=gnu99
-  OBJECT_DIR = CMakeFiles\Server_Clien_Communication_In_C.dir
-  OBJECT_FILE_DIR = CMakeFiles\Server_Clien_Communication_In_C.dir
-  TARGET_COMPILE_PDB = CMakeFiles\Server_Clien_Communication_In_C.dir\
-  TARGET_PDB = Server_Clien_Communication_In_C.pdb
-
-
-# =============================================================================
-# Link build statements for EXECUTABLE target Server_Clien_Communication_In_C
-
-
-#############################################
-# Link the executable Server_Clien_Communication_In_C.exe
-
-build Server_Clien_Communication_In_C.exe: C_EXECUTABLE_LINKER__Server_Clien_Communication_In_C_Debug CMakeFiles/Server_Clien_Communication_In_C.dir/main.c.obj
-  FLAGS = -g
-  LINK_LIBRARIES = -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32
-  OBJECT_DIR = CMakeFiles\Server_Clien_Communication_In_C.dir
-  POST_BUILD = cd .
-  PRE_LINK = cd .
-  TARGET_COMPILE_PDB = CMakeFiles\Server_Clien_Communication_In_C.dir\
-  TARGET_FILE = Server_Clien_Communication_In_C.exe
-  TARGET_IMPLIB = libServer_Clien_Communication_In_C.dll.a
-  TARGET_PDB = Server_Clien_Communication_In_C.pdb
-
-
-#############################################
-# Utility command for edit_cache
-
-build CMakeFiles/edit_cache.util: CUSTOM_COMMAND
-  COMMAND = cmd.exe /C "cd /D D:\Workspace\Server-Client-Communication-In-C\cmake-build-debug && "C:\Program Files\JetBrains\CLion 2021.2.3\bin\cmake\win\bin\cmake.exe" -E echo "No interactive CMake dialog available.""
-  DESC = No interactive CMake dialog available...
-  restat = 1
-
-build edit_cache: phony CMakeFiles/edit_cache.util
-
 
 #############################################
 # Utility command for rebuild_cache
@@ -100,9 +53,61 @@ build CMakeFiles/rebuild_cache.util: CUSTOM_COMMAND
 build rebuild_cache: phony CMakeFiles/rebuild_cache.util
 
 # =============================================================================
+# Object build statements for EXECUTABLE target Server_Client_Communication_In_C
+
+
+#############################################
+# Order-only phony target for Server_Client_Communication_In_C
+
+build cmake_object_order_depends_target_Server_Client_Communication_In_C: phony || CMakeFiles/Server_Client_Communication_In_C.dir
+
+build CMakeFiles/Server_Client_Communication_In_C.dir/client.c.obj: C_COMPILER__Server_Client_Communication_In_C_Debug D$:/Workspace/Server-Client-Communication-In-C/client.c || cmake_object_order_depends_target_Server_Client_Communication_In_C
+  DEP_FILE = CMakeFiles\Server_Client_Communication_In_C.dir\client.c.obj.d
+  FLAGS = -g -std=gnu11
+  INCLUDES = -ID:/Workspace/Server-Client-Communication-In-C/headers
+  OBJECT_DIR = CMakeFiles\Server_Client_Communication_In_C.dir
+  OBJECT_FILE_DIR = CMakeFiles\Server_Client_Communication_In_C.dir
+
+build CMakeFiles/Server_Client_Communication_In_C.dir/main.c.obj: C_COMPILER__Server_Client_Communication_In_C_Debug D$:/Workspace/Server-Client-Communication-In-C/main.c || cmake_object_order_depends_target_Server_Client_Communication_In_C
+  DEP_FILE = CMakeFiles\Server_Client_Communication_In_C.dir\main.c.obj.d
+  FLAGS = -g -std=gnu11
+  INCLUDES = -ID:/Workspace/Server-Client-Communication-In-C/headers
+  OBJECT_DIR = CMakeFiles\Server_Client_Communication_In_C.dir
+  OBJECT_FILE_DIR = CMakeFiles\Server_Client_Communication_In_C.dir
+
+
+# =============================================================================
+# Link build statements for EXECUTABLE target Server_Client_Communication_In_C
+
+
+#############################################
+# Link the executable Server_Client_Communication_In_C.exe
+
+build Server_Client_Communication_In_C.exe: C_EXECUTABLE_LINKER__Server_Client_Communication_In_C_Debug CMakeFiles/Server_Client_Communication_In_C.dir/client.c.obj CMakeFiles/Server_Client_Communication_In_C.dir/main.c.obj
+  FLAGS = -g
+  LINK_LIBRARIES = -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32
+  OBJECT_DIR = CMakeFiles\Server_Client_Communication_In_C.dir
+  POST_BUILD = cd .
+  PRE_LINK = cd .
+  TARGET_FILE = Server_Client_Communication_In_C.exe
+  TARGET_IMPLIB = libServer_Client_Communication_In_C.dll.a
+  TARGET_PDB = Server_Client_Communication_In_C.exe.dbg
+
+
+#############################################
+# Utility command for edit_cache
+
+build CMakeFiles/edit_cache.util: CUSTOM_COMMAND
+  COMMAND = cmd.exe /C "cd /D D:\Workspace\Server-Client-Communication-In-C\cmake-build-debug && "C:\Program Files\JetBrains\CLion 2021.2.3\bin\cmake\win\bin\cmake.exe" -E echo "No interactive CMake dialog available.""
+  DESC = No interactive CMake dialog available...
+  restat = 1
+
+build edit_cache: phony CMakeFiles/edit_cache.util
+
+# =============================================================================
 # Target aliases.
 
-build Server_Clien_Communication_In_C: phony Server_Clien_Communication_In_C.exe
+build Server_Client_Communication_In_C: phony Server_Client_Communication_In_C.exe
 
 # =============================================================================
 # Folder targets.
@@ -112,7 +117,7 @@ build Server_Clien_Communication_In_C: phony Server_Clien_Communication_In_C.exe
 #############################################
 # Folder: D:/Workspace/Server-Client-Communication-In-C/cmake-build-debug
 
-build all: phony Server_Clien_Communication_In_C.exe
+build all: phony Server_Client_Communication_In_C.exe
 
 # =============================================================================
 # Built-in targets
@@ -121,14 +126,14 @@ build all: phony Server_Clien_Communication_In_C.exe
 #############################################
 # Re-run CMake if any of its inputs changed.
 
-build build.ninja: RERUN_CMAKE | ../CMakeLists.txt C$:/Program$ Files/JetBrains/CLion$ 2021.2.3/bin/cmake/win/share/cmake-3.21/Modules/CMakeCCompiler.cmake.in C$:/Program$ Files/JetBrains/CLion$ 2021.2.3/bin/cmake/win/share/cmake-3.21/Modules/CMakeCCompilerABI.c C$:/Program$ Files/JetBrains/CLion$ 2021.2.3/bin/cmake/win/share/cmake-3.21/Modules/CMakeCInformation.cmake C$:/Program$ Files/JetBrains/CLion$ 2021.2.3/bin/cmake/win/share/cmake-3.21/Modules/CMakeCommonLanguageInclude.cmake C$:/Program$ Files/JetBrains/CLion$ 2021.2.3/bin/cmake/win/share/cmake-3.21/Modules/CMakeCompilerIdDetection.cmake C$:/Program$ Files/JetBrains/CLion$ 2021.2.3/bin/cmake/win/share/cmake-3.21/Modules/CMakeDetermineCCompiler.cmake C$:/Program$ Files/JetBrains/CLion$ 2021.2.3/bin/cmake/win/share/cmake-3.21/Modules/CMakeDetermineCompileFeatures.cmake C$:/Program$ Files/JetBrains/CLion$ 2021.2.3/bin/cmake/win/share/cmake-3.21/Modules/CMakeDetermineCompiler.cmake C$:/Program$ Files/JetBrains/CLion$ 2021.2.3/bin/cmake/win/share/cmake-3.21/Modules/CMakeDetermineCompilerABI.cmake C$:/Program$ Files/JetBrains/CLion$ 2021.2.3/bin/cmake/win/share/cmake-3.21/Modules/CMakeDetermineCompilerId.cmake C$:/Program$ Files/JetBrains/CLion$ 2021.2.3/bin/cmake/win/share/cmake-3.21/Modules/CMakeDetermineRCCompiler.cmake C$:/Program$ Files/JetBrains/CLion$ 2021.2.3/bin/cmake/win/share/cmake-3.21/Modules/CMakeDetermineSystem.cmake C$:/Program$ Files/JetBrains/CLion$ 2021.2.3/bin/cmake/win/share/cmake-3.21/Modules/CMakeFindBinUtils.cmake C$:/Program$ Files/JetBrains/CLion$ 2021.2.3/bin/cmake/win/share/cmake-3.21/Modules/CMakeGenericSystem.cmake C$:/Program$ Files/JetBrains/CLion$ 2021.2.3/bin/cmake/win/share/cmake-3.21/Modules/CMakeInitializeConfigs.cmake C$:/Program$ Files/JetBrains/CLion$ 2021.2.3/bin/cmake/win/share/cmake-3.21/Modules/CMakeLanguageInformation.cmake C$:/Program$ Files/JetBrains/CLion$ 2021.2.3/bin/cmake/win/share/cmake-3.21/Modules/CMakeParseImplicitIncludeInfo.cmake C$:/Program$ Files/JetBrains/CLion$ 2021.2.3/bin/cmake/win/share/cmake-3.21/Modules/CMakeParseImplicitLinkInfo.cmake C$:/Program$ Files/JetBrains/CLion$ 2021.2.3/bin/cmake/win/share/cmake-3.21/Modules/CMakeParseLibraryArchitecture.cmake C$:/Program$ Files/JetBrains/CLion$ 2021.2.3/bin/cmake/win/share/cmake-3.21/Modules/CMakeRCCompiler.cmake.in C$:/Program$ Files/JetBrains/CLion$ 2021.2.3/bin/cmake/win/share/cmake-3.21/Modules/CMakeRCInformation.cmake C$:/Program$ Files/JetBrains/CLion$ 2021.2.3/bin/cmake/win/share/cmake-3.21/Modules/CMakeSystem.cmake.in C$:/Program$ Files/JetBrains/CLion$ 2021.2.3/bin/cmake/win/share/cmake-3.21/Modules/CMakeSystemSpecificInformation.cmake C$:/Program$ Files/JetBrains/CLion$ 2021.2.3/bin/cmake/win/share/cmake-3.21/Modules/CMakeSystemSpecificInitialize.cmake C$:/Program$ Files/JetBrains/CLion$ 2021.2.3/bin/cmake/win/share/cmake-3.21/Modules/CMakeTestCCompiler.cmake C$:/Program$ Files/JetBrains/CLion$ 2021.2.3/bin/cmake/win/share/cmake-3.21/Modules/CMakeTestCompilerCommon.cmake C$:/Program$ Files/JetBrains/CLion$ 2021.2.3/bin/cmake/win/share/cmake-3.21/Modules/CMakeTestRCCompiler.cmake C$:/Program$ Files/JetBrains/CLion$ 2021.2.3/bin/cmake/win/share/cmake-3.21/Modules/Compiler/ADSP-DetermineCompiler.cmake C$:/Program$ Files/JetBrains/CLion$ 2021.2.3/bin/cmake/win/share/cmake-3.21/Modules/Compiler/ARMCC-DetermineCompiler.cmake C$:/Program$ Files/JetBrains/CLion$ 2021.2.3/bin/cmake/win/share/cmake-3.21/Modules/Compiler/ARMClang-DetermineCompiler.cmake C$:/Program$ Files/JetBrains/CLion$ 2021.2.3/bin/cmake/win/share/cmake-3.21/Modules/Compiler/AppleClang-DetermineCompiler.cmake C$:/Program$ Files/JetBrains/CLion$ 2021.2.3/bin/cmake/win/share/cmake-3.21/Modules/Compiler/Borland-DetermineCompiler.cmake C$:/Program$ Files/JetBrains/CLion$ 2021.2.3/bin/cmake/win/share/cmake-3.21/Modules/Compiler/Bruce-C-DetermineCompiler.cmake C$:/Program$ Files/JetBrains/CLion$ 2021.2.3/bin/cmake/win/share/cmake-3.21/Modules/Compiler/CMakeCommonCompilerMacros.cmake C$:/Program$ Files/JetBrains/CLion$ 2021.2.3/bin/cmake/win/share/cmake-3.21/Modules/Compiler/Clang-DetermineCompiler.cmake C$:/Program$ Files/JetBrains/CLion$ 2021.2.3/bin/cmake/win/share/cmake-3.21/Modules/Compiler/Clang-DetermineCompilerInternal.cmake C$:/Program$ Files/JetBrains/CLion$ 2021.2.3/bin/cmake/win/share/cmake-3.21/Modules/Compiler/Compaq-C-DetermineCompiler.cmake C$:/Program$ Files/JetBrains/CLion$ 2021.2.3/bin/cmake/win/share/cmake-3.21/Modules/Compiler/Cray-DetermineCompiler.cmake C$:/Program$ Files/JetBrains/CLion$ 2021.2.3/bin/cmake/win/share/cmake-3.21/Modules/Compiler/Embarcadero-DetermineCompiler.cmake C$:/Program$ Files/JetBrains/CLion$ 2021.2.3/bin/cmake/win/share/cmake-3.21/Modules/Compiler/Fujitsu-DetermineCompiler.cmake C$:/Program$ Files/JetBrains/CLion$ 2021.2.3/bin/cmake/win/share/cmake-3.21/Modules/Compiler/FujitsuClang-DetermineCompiler.cmake C$:/Program$ Files/JetBrains/CLion$ 2021.2.3/bin/cmake/win/share/cmake-3.21/Modules/Compiler/GHS-DetermineCompiler.cmake C$:/Program$ Files/JetBrains/CLion$ 2021.2.3/bin/cmake/win/share/cmake-3.21/Modules/Compiler/GNU-C-DetermineCompiler.cmake C$:/Program$ Files/JetBrains/CLion$ 2021.2.3/bin/cmake/win/share/cmake-3.21/Modules/Compiler/GNU-C.cmake C$:/Program$ Files/JetBrains/CLion$ 2021.2.3/bin/cmake/win/share/cmake-3.21/Modules/Compiler/GNU-FindBinUtils.cmake C$:/Program$ Files/JetBrains/CLion$ 2021.2.3/bin/cmake/win/share/cmake-3.21/Modules/Compiler/GNU.cmake C$:/Program$ Files/JetBrains/CLion$ 2021.2.3/bin/cmake/win/share/cmake-3.21/Modules/Compiler/HP-C-DetermineCompiler.cmake C$:/Program$ Files/JetBrains/CLion$ 2021.2.3/bin/cmake/win/share/cmake-3.21/Modules/Compiler/IAR-DetermineCompiler.cmake C$:/Program$ Files/JetBrains/CLion$ 2021.2.3/bin/cmake/win/share/cmake-3.21/Modules/Compiler/IBMCPP-C-DetermineVersionInternal.cmake C$:/Program$ Files/JetBrains/CLion$ 2021.2.3/bin/cmake/win/share/cmake-3.21/Modules/Compiler/Intel-DetermineCompiler.cmake C$:/Program$ Files/JetBrains/CLion$ 2021.2.3/bin/cmake/win/share/cmake-3.21/Modules/Compiler/IntelLLVM-DetermineCompiler.cmake C$:/Program$ Files/JetBrains/CLion$ 2021.2.3/bin/cmake/win/share/cmake-3.21/Modules/Compiler/MSVC-DetermineCompiler.cmake C$:/Program$ Files/JetBrains/CLion$ 2021.2.3/bin/cmake/win/share/cmake-3.21/Modules/Compiler/NVHPC-DetermineCompiler.cmake C$:/Program$ Files/JetBrains/CLion$ 2021.2.3/bin/cmake/win/share/cmake-3.21/Modules/Compiler/NVIDIA-DetermineCompiler.cmake C$:/Program$ Files/JetBrains/CLion$ 2021.2.3/bin/cmake/win/share/cmake-3.21/Modules/Compiler/OpenWatcom-DetermineCompiler.cmake C$:/Program$ Files/JetBrains/CLion$ 2021.2.3/bin/cmake/win/share/cmake-3.21/Modules/Compiler/PGI-DetermineCompiler.cmake C$:/Program$ Files/JetBrains/CLion$ 2021.2.3/bin/cmake/win/share/cmake-3.21/Modules/Compiler/PathScale-DetermineCompiler.cmake C$:/Program$ Files/JetBrains/CLion$ 2021.2.3/bin/cmake/win/share/cmake-3.21/Modules/Compiler/ROCMClang-DetermineCompiler.cmake C$:/Program$ Files/JetBrains/CLion$ 2021.2.3/bin/cmake/win/share/cmake-3.21/Modules/Compiler/SCO-DetermineCompiler.cmake C$:/Program$ Files/JetBrains/CLion$ 2021.2.3/bin/cmake/win/share/cmake-3.21/Modules/Compiler/SDCC-C-DetermineCompiler.cmake C$:/Program$ Files/JetBrains/CLion$ 2021.2.3/bin/cmake/win/share/cmake-3.21/Modules/Compiler/SunPro-C-DetermineCompiler.cmake C$:/Program$ Files/JetBrains/CLion$ 2021.2.3/bin/cmake/win/share/cmake-3.21/Modules/Compiler/TI-DetermineCompiler.cmake C$:/Program$ Files/JetBrains/CLion$ 2021.2.3/bin/cmake/win/share/cmake-3.21/Modules/Compiler/TinyCC-C-DetermineCompiler.cmake C$:/Program$ Files/JetBrains/CLion$ 2021.2.3/bin/cmake/win/share/cmake-3.21/Modules/Compiler/VisualAge-C-DetermineCompiler.cmake C$:/Program$ Files/JetBrains/CLion$ 2021.2.3/bin/cmake/win/share/cmake-3.21/Modules/Compiler/Watcom-DetermineCompiler.cmake C$:/Program$ Files/JetBrains/CLion$ 2021.2.3/bin/cmake/win/share/cmake-3.21/Modules/Compiler/XL-C-DetermineCompiler.cmake C$:/Program$ Files/JetBrains/CLion$ 2021.2.3/bin/cmake/win/share/cmake-3.21/Modules/Compiler/XLClang-C-DetermineCompiler.cmake C$:/Program$ Files/JetBrains/CLion$ 2021.2.3/bin/cmake/win/share/cmake-3.21/Modules/Compiler/zOS-C-DetermineCompiler.cmake C$:/Program$ Files/JetBrains/CLion$ 2021.2.3/bin/cmake/win/share/cmake-3.21/Modules/Internal/FeatureTesting.cmake C$:/Program$ Files/JetBrains/CLion$ 2021.2.3/bin/cmake/win/share/cmake-3.21/Modules/Platform/Windows-GNU-C-ABI.cmake C$:/Program$ Files/JetBrains/CLion$ 2021.2.3/bin/cmake/win/share/cmake-3.21/Modules/Platform/Windows-GNU-C.cmake C$:/Program$ Files/JetBrains/CLion$ 2021.2.3/bin/cmake/win/share/cmake-3.21/Modules/Platform/Windows-GNU.cmake C$:/Program$ Files/JetBrains/CLion$ 2021.2.3/bin/cmake/win/share/cmake-3.21/Modules/Platform/Windows-windres.cmake C$:/Program$ Files/JetBrains/CLion$ 2021.2.3/bin/cmake/win/share/cmake-3.21/Modules/Platform/Windows.cmake C$:/Program$ Files/JetBrains/CLion$ 2021.2.3/bin/cmake/win/share/cmake-3.21/Modules/Platform/WindowsPaths.cmake CMakeCache.txt CMakeFiles/3.21.1/CMakeCCompiler.cmake CMakeFiles/3.21.1/CMakeRCCompiler.cmake CMakeFiles/3.21.1/CMakeSystem.cmake
+build build.ninja: RERUN_CMAKE | ../CMakeLists.txt C$:/Program$ Files/JetBrains/CLion$ 2021.2.3/bin/cmake/win/share/cmake-3.21/Modules/CMakeCInformation.cmake C$:/Program$ Files/JetBrains/CLion$ 2021.2.3/bin/cmake/win/share/cmake-3.21/Modules/CMakeCommonLanguageInclude.cmake C$:/Program$ Files/JetBrains/CLion$ 2021.2.3/bin/cmake/win/share/cmake-3.21/Modules/CMakeGenericSystem.cmake C$:/Program$ Files/JetBrains/CLion$ 2021.2.3/bin/cmake/win/share/cmake-3.21/Modules/CMakeInitializeConfigs.cmake C$:/Program$ Files/JetBrains/CLion$ 2021.2.3/bin/cmake/win/share/cmake-3.21/Modules/CMakeLanguageInformation.cmake C$:/Program$ Files/JetBrains/CLion$ 2021.2.3/bin/cmake/win/share/cmake-3.21/Modules/CMakeRCInformation.cmake C$:/Program$ Files/JetBrains/CLion$ 2021.2.3/bin/cmake/win/share/cmake-3.21/Modules/CMakeSystemSpecificInformation.cmake C$:/Program$ Files/JetBrains/CLion$ 2021.2.3/bin/cmake/win/share/cmake-3.21/Modules/CMakeSystemSpecificInitialize.cmake C$:/Program$ Files/JetBrains/CLion$ 2021.2.3/bin/cmake/win/share/cmake-3.21/Modules/Compiler/CMakeCommonCompilerMacros.cmake C$:/Program$ Files/JetBrains/CLion$ 2021.2.3/bin/cmake/win/share/cmake-3.21/Modules/Compiler/GNU-C.cmake C$:/Program$ Files/JetBrains/CLion$ 2021.2.3/bin/cmake/win/share/cmake-3.21/Modules/Compiler/GNU.cmake C$:/Program$ Files/JetBrains/CLion$ 2021.2.3/bin/cmake/win/share/cmake-3.21/Modules/Platform/Windows-GNU-C-ABI.cmake C$:/Program$ Files/JetBrains/CLion$ 2021.2.3/bin/cmake/win/share/cmake-3.21/Modules/Platform/Windows-GNU-C.cmake C$:/Program$ Files/JetBrains/CLion$ 2021.2.3/bin/cmake/win/share/cmake-3.21/Modules/Platform/Windows-GNU.cmake C$:/Program$ Files/JetBrains/CLion$ 2021.2.3/bin/cmake/win/share/cmake-3.21/Modules/Platform/Windows-windres.cmake C$:/Program$ Files/JetBrains/CLion$ 2021.2.3/bin/cmake/win/share/cmake-3.21/Modules/Platform/Windows.cmake C$:/Program$ Files/JetBrains/CLion$ 2021.2.3/bin/cmake/win/share/cmake-3.21/Modules/Platform/WindowsPaths.cmake CMakeCache.txt CMakeFiles/3.21.1/CMakeCCompiler.cmake CMakeFiles/3.21.1/CMakeRCCompiler.cmake CMakeFiles/3.21.1/CMakeSystem.cmake
   pool = console
 
 
 #############################################
 # A missing CMake input file is not an error.
 
-build ../CMakeLists.txt C$:/Program$ Files/JetBrains/CLion$ 2021.2.3/bin/cmake/win/share/cmake-3.21/Modules/CMakeCCompiler.cmake.in C$:/Program$ Files/JetBrains/CLion$ 2021.2.3/bin/cmake/win/share/cmake-3.21/Modules/CMakeCCompilerABI.c C$:/Program$ Files/JetBrains/CLion$ 2021.2.3/bin/cmake/win/share/cmake-3.21/Modules/CMakeCInformation.cmake C$:/Program$ Files/JetBrains/CLion$ 2021.2.3/bin/cmake/win/share/cmake-3.21/Modules/CMakeCommonLanguageInclude.cmake C$:/Program$ Files/JetBrains/CLion$ 2021.2.3/bin/cmake/win/share/cmake-3.21/Modules/CMakeCompilerIdDetection.cmake C$:/Program$ Files/JetBrains/CLion$ 2021.2.3/bin/cmake/win/share/cmake-3.21/Modules/CMakeDetermineCCompiler.cmake C$:/Program$ Files/JetBrains/CLion$ 2021.2.3/bin/cmake/win/share/cmake-3.21/Modules/CMakeDetermineCompileFeatures.cmake C$:/Program$ Files/JetBrains/CLion$ 2021.2.3/bin/cmake/win/share/cmake-3.21/Modules/CMakeDetermineCompiler.cmake C$:/Program$ Files/JetBrains/CLion$ 2021.2.3/bin/cmake/win/share/cmake-3.21/Modules/CMakeDetermineCompilerABI.cmake C$:/Program$ Files/JetBrains/CLion$ 2021.2.3/bin/cmake/win/share/cmake-3.21/Modules/CMakeDetermineCompilerId.cmake C$:/Program$ Files/JetBrains/CLion$ 2021.2.3/bin/cmake/win/share/cmake-3.21/Modules/CMakeDetermineRCCompiler.cmake C$:/Program$ Files/JetBrains/CLion$ 2021.2.3/bin/cmake/win/share/cmake-3.21/Modules/CMakeDetermineSystem.cmake C$:/Program$ Files/JetBrains/CLion$ 2021.2.3/bin/cmake/win/share/cmake-3.21/Modules/CMakeFindBinUtils.cmake C$:/Program$ Files/JetBrains/CLion$ 2021.2.3/bin/cmake/win/share/cmake-3.21/Modules/CMakeGenericSystem.cmake C$:/Program$ Files/JetBrains/CLion$ 2021.2.3/bin/cmake/win/share/cmake-3.21/Modules/CMakeInitializeConfigs.cmake C$:/Program$ Files/JetBrains/CLion$ 2021.2.3/bin/cmake/win/share/cmake-3.21/Modules/CMakeLanguageInformation.cmake C$:/Program$ Files/JetBrains/CLion$ 2021.2.3/bin/cmake/win/share/cmake-3.21/Modules/CMakeParseImplicitIncludeInfo.cmake C$:/Program$ Files/JetBrains/CLion$ 2021.2.3/bin/cmake/win/share/cmake-3.21/Modules/CMakeParseImplicitLinkInfo.cmake C$:/Program$ Files/JetBrains/CLion$ 2021.2.3/bin/cmake/win/share/cmake-3.21/Modules/CMakeParseLibraryArchitecture.cmake C$:/Program$ Files/JetBrains/CLion$ 2021.2.3/bin/cmake/win/share/cmake-3.21/Modules/CMakeRCCompiler.cmake.in C$:/Program$ Files/JetBrains/CLion$ 2021.2.3/bin/cmake/win/share/cmake-3.21/Modules/CMakeRCInformation.cmake C$:/Program$ Files/JetBrains/CLion$ 2021.2.3/bin/cmake/win/share/cmake-3.21/Modules/CMakeSystem.cmake.in C$:/Program$ Files/JetBrains/CLion$ 2021.2.3/bin/cmake/win/share/cmake-3.21/Modules/CMakeSystemSpecificInformation.cmake C$:/Program$ Files/JetBrains/CLion$ 2021.2.3/bin/cmake/win/share/cmake-3.21/Modules/CMakeSystemSpecificInitialize.cmake C$:/Program$ Files/JetBrains/CLion$ 2021.2.3/bin/cmake/win/share/cmake-3.21/Modules/CMakeTestCCompiler.cmake C$:/Program$ Files/JetBrains/CLion$ 2021.2.3/bin/cmake/win/share/cmake-3.21/Modules/CMakeTestCompilerCommon.cmake C$:/Program$ Files/JetBrains/CLion$ 2021.2.3/bin/cmake/win/share/cmake-3.21/Modules/CMakeTestRCCompiler.cmake C$:/Program$ Files/JetBrains/CLion$ 2021.2.3/bin/cmake/win/share/cmake-3.21/Modules/Compiler/ADSP-DetermineCompiler.cmake C$:/Program$ Files/JetBrains/CLion$ 2021.2.3/bin/cmake/win/share/cmake-3.21/Modules/Compiler/ARMCC-DetermineCompiler.cmake C$:/Program$ Files/JetBrains/CLion$ 2021.2.3/bin/cmake/win/share/cmake-3.21/Modules/Compiler/ARMClang-DetermineCompiler.cmake C$:/Program$ Files/JetBrains/CLion$ 2021.2.3/bin/cmake/win/share/cmake-3.21/Modules/Compiler/AppleClang-DetermineCompiler.cmake C$:/Program$ Files/JetBrains/CLion$ 2021.2.3/bin/cmake/win/share/cmake-3.21/Modules/Compiler/Borland-DetermineCompiler.cmake C$:/Program$ Files/JetBrains/CLion$ 2021.2.3/bin/cmake/win/share/cmake-3.21/Modules/Compiler/Bruce-C-DetermineCompiler.cmake C$:/Program$ Files/JetBrains/CLion$ 2021.2.3/bin/cmake/win/share/cmake-3.21/Modules/Compiler/CMakeCommonCompilerMacros.cmake C$:/Program$ Files/JetBrains/CLion$ 2021.2.3/bin/cmake/win/share/cmake-3.21/Modules/Compiler/Clang-DetermineCompiler.cmake C$:/Program$ Files/JetBrains/CLion$ 2021.2.3/bin/cmake/win/share/cmake-3.21/Modules/Compiler/Clang-DetermineCompilerInternal.cmake C$:/Program$ Files/JetBrains/CLion$ 2021.2.3/bin/cmake/win/share/cmake-3.21/Modules/Compiler/Compaq-C-DetermineCompiler.cmake C$:/Program$ Files/JetBrains/CLion$ 2021.2.3/bin/cmake/win/share/cmake-3.21/Modules/Compiler/Cray-DetermineCompiler.cmake C$:/Program$ Files/JetBrains/CLion$ 2021.2.3/bin/cmake/win/share/cmake-3.21/Modules/Compiler/Embarcadero-DetermineCompiler.cmake C$:/Program$ Files/JetBrains/CLion$ 2021.2.3/bin/cmake/win/share/cmake-3.21/Modules/Compiler/Fujitsu-DetermineCompiler.cmake C$:/Program$ Files/JetBrains/CLion$ 2021.2.3/bin/cmake/win/share/cmake-3.21/Modules/Compiler/FujitsuClang-DetermineCompiler.cmake C$:/Program$ Files/JetBrains/CLion$ 2021.2.3/bin/cmake/win/share/cmake-3.21/Modules/Compiler/GHS-DetermineCompiler.cmake C$:/Program$ Files/JetBrains/CLion$ 2021.2.3/bin/cmake/win/share/cmake-3.21/Modules/Compiler/GNU-C-DetermineCompiler.cmake C$:/Program$ Files/JetBrains/CLion$ 2021.2.3/bin/cmake/win/share/cmake-3.21/Modules/Compiler/GNU-C.cmake C$:/Program$ Files/JetBrains/CLion$ 2021.2.3/bin/cmake/win/share/cmake-3.21/Modules/Compiler/GNU-FindBinUtils.cmake C$:/Program$ Files/JetBrains/CLion$ 2021.2.3/bin/cmake/win/share/cmake-3.21/Modules/Compiler/GNU.cmake C$:/Program$ Files/JetBrains/CLion$ 2021.2.3/bin/cmake/win/share/cmake-3.21/Modules/Compiler/HP-C-DetermineCompiler.cmake C$:/Program$ Files/JetBrains/CLion$ 2021.2.3/bin/cmake/win/share/cmake-3.21/Modules/Compiler/IAR-DetermineCompiler.cmake C$:/Program$ Files/JetBrains/CLion$ 2021.2.3/bin/cmake/win/share/cmake-3.21/Modules/Compiler/IBMCPP-C-DetermineVersionInternal.cmake C$:/Program$ Files/JetBrains/CLion$ 2021.2.3/bin/cmake/win/share/cmake-3.21/Modules/Compiler/Intel-DetermineCompiler.cmake C$:/Program$ Files/JetBrains/CLion$ 2021.2.3/bin/cmake/win/share/cmake-3.21/Modules/Compiler/IntelLLVM-DetermineCompiler.cmake C$:/Program$ Files/JetBrains/CLion$ 2021.2.3/bin/cmake/win/share/cmake-3.21/Modules/Compiler/MSVC-DetermineCompiler.cmake C$:/Program$ Files/JetBrains/CLion$ 2021.2.3/bin/cmake/win/share/cmake-3.21/Modules/Compiler/NVHPC-DetermineCompiler.cmake C$:/Program$ Files/JetBrains/CLion$ 2021.2.3/bin/cmake/win/share/cmake-3.21/Modules/Compiler/NVIDIA-DetermineCompiler.cmake C$:/Program$ Files/JetBrains/CLion$ 2021.2.3/bin/cmake/win/share/cmake-3.21/Modules/Compiler/OpenWatcom-DetermineCompiler.cmake C$:/Program$ Files/JetBrains/CLion$ 2021.2.3/bin/cmake/win/share/cmake-3.21/Modules/Compiler/PGI-DetermineCompiler.cmake C$:/Program$ Files/JetBrains/CLion$ 2021.2.3/bin/cmake/win/share/cmake-3.21/Modules/Compiler/PathScale-DetermineCompiler.cmake C$:/Program$ Files/JetBrains/CLion$ 2021.2.3/bin/cmake/win/share/cmake-3.21/Modules/Compiler/ROCMClang-DetermineCompiler.cmake C$:/Program$ Files/JetBrains/CLion$ 2021.2.3/bin/cmake/win/share/cmake-3.21/Modules/Compiler/SCO-DetermineCompiler.cmake C$:/Program$ Files/JetBrains/CLion$ 2021.2.3/bin/cmake/win/share/cmake-3.21/Modules/Compiler/SDCC-C-DetermineCompiler.cmake C$:/Program$ Files/JetBrains/CLion$ 2021.2.3/bin/cmake/win/share/cmake-3.21/Modules/Compiler/SunPro-C-DetermineCompiler.cmake C$:/Program$ Files/JetBrains/CLion$ 2021.2.3/bin/cmake/win/share/cmake-3.21/Modules/Compiler/TI-DetermineCompiler.cmake C$:/Program$ Files/JetBrains/CLion$ 2021.2.3/bin/cmake/win/share/cmake-3.21/Modules/Compiler/TinyCC-C-DetermineCompiler.cmake C$:/Program$ Files/JetBrains/CLion$ 2021.2.3/bin/cmake/win/share/cmake-3.21/Modules/Compiler/VisualAge-C-DetermineCompiler.cmake C$:/Program$ Files/JetBrains/CLion$ 2021.2.3/bin/cmake/win/share/cmake-3.21/Modules/Compiler/Watcom-DetermineCompiler.cmake C$:/Program$ Files/JetBrains/CLion$ 2021.2.3/bin/cmake/win/share/cmake-3.21/Modules/Compiler/XL-C-DetermineCompiler.cmake C$:/Program$ Files/JetBrains/CLion$ 2021.2.3/bin/cmake/win/share/cmake-3.21/Modules/Compiler/XLClang-C-DetermineCompiler.cmake C$:/Program$ Files/JetBrains/CLion$ 2021.2.3/bin/cmake/win/share/cmake-3.21/Modules/Compiler/zOS-C-DetermineCompiler.cmake C$:/Program$ Files/JetBrains/CLion$ 2021.2.3/bin/cmake/win/share/cmake-3.21/Modules/Internal/FeatureTesting.cmake C$:/Program$ Files/JetBrains/CLion$ 2021.2.3/bin/cmake/win/share/cmake-3.21/Modules/Platform/Windows-GNU-C-ABI.cmake C$:/Program$ Files/JetBrains/CLion$ 2021.2.3/bin/cmake/win/share/cmake-3.21/Modules/Platform/Windows-GNU-C.cmake C$:/Program$ Files/JetBrains/CLion$ 2021.2.3/bin/cmake/win/share/cmake-3.21/Modules/Platform/Windows-GNU.cmake C$:/Program$ Files/JetBrains/CLion$ 2021.2.3/bin/cmake/win/share/cmake-3.21/Modules/Platform/Windows-windres.cmake C$:/Program$ Files/JetBrains/CLion$ 2021.2.3/bin/cmake/win/share/cmake-3.21/Modules/Platform/Windows.cmake C$:/Program$ Files/JetBrains/CLion$ 2021.2.3/bin/cmake/win/share/cmake-3.21/Modules/Platform/WindowsPaths.cmake CMakeCache.txt CMakeFiles/3.21.1/CMakeCCompiler.cmake CMakeFiles/3.21.1/CMakeRCCompiler.cmake CMakeFiles/3.21.1/CMakeSystem.cmake: phony
+build ../CMakeLists.txt C$:/Program$ Files/JetBrains/CLion$ 2021.2.3/bin/cmake/win/share/cmake-3.21/Modules/CMakeCInformation.cmake C$:/Program$ Files/JetBrains/CLion$ 2021.2.3/bin/cmake/win/share/cmake-3.21/Modules/CMakeCommonLanguageInclude.cmake C$:/Program$ Files/JetBrains/CLion$ 2021.2.3/bin/cmake/win/share/cmake-3.21/Modules/CMakeGenericSystem.cmake C$:/Program$ Files/JetBrains/CLion$ 2021.2.3/bin/cmake/win/share/cmake-3.21/Modules/CMakeInitializeConfigs.cmake C$:/Program$ Files/JetBrains/CLion$ 2021.2.3/bin/cmake/win/share/cmake-3.21/Modules/CMakeLanguageInformation.cmake C$:/Program$ Files/JetBrains/CLion$ 2021.2.3/bin/cmake/win/share/cmake-3.21/Modules/CMakeRCInformation.cmake C$:/Program$ Files/JetBrains/CLion$ 2021.2.3/bin/cmake/win/share/cmake-3.21/Modules/CMakeSystemSpecificInformation.cmake C$:/Program$ Files/JetBrains/CLion$ 2021.2.3/bin/cmake/win/share/cmake-3.21/Modules/CMakeSystemSpecificInitialize.cmake C$:/Program$ Files/JetBrains/CLion$ 2021.2.3/bin/cmake/win/share/cmake-3.21/Modules/Compiler/CMakeCommonCompilerMacros.cmake C$:/Program$ Files/JetBrains/CLion$ 2021.2.3/bin/cmake/win/share/cmake-3.21/Modules/Compiler/GNU-C.cmake C$:/Program$ Files/JetBrains/CLion$ 2021.2.3/bin/cmake/win/share/cmake-3.21/Modules/Compiler/GNU.cmake C$:/Program$ Files/JetBrains/CLion$ 2021.2.3/bin/cmake/win/share/cmake-3.21/Modules/Platform/Windows-GNU-C-ABI.cmake C$:/Program$ Files/JetBrains/CLion$ 2021.2.3/bin/cmake/win/share/cmake-3.21/Modules/Platform/Windows-GNU-C.cmake C$:/Program$ Files/JetBrains/CLion$ 2021.2.3/bin/cmake/win/share/cmake-3.21/Modules/Platform/Windows-GNU.cmake C$:/Program$ Files/JetBrains/CLion$ 2021.2.3/bin/cmake/win/share/cmake-3.21/Modules/Platform/Windows-windres.cmake C$:/Program$ Files/JetBrains/CLion$ 2021.2.3/bin/cmake/win/share/cmake-3.21/Modules/Platform/Windows.cmake C$:/Program$ Files/JetBrains/CLion$ 2021.2.3/bin/cmake/win/share/cmake-3.21/Modules/Platform/WindowsPaths.cmake CMakeCache.txt CMakeFiles/3.21.1/CMakeCCompiler.cmake CMakeFiles/3.21.1/CMakeRCCompiler.cmake CMakeFiles/3.21.1/CMakeSystem.cmake: phony
 
 
 #############################################

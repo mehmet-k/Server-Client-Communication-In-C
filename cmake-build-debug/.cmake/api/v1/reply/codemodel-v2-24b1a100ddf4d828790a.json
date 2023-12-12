@@ -27,7 +27,7 @@
 					[
 						0
 					],
-					"name" : "Server_Clien_Communication_In_C",
+					"name" : "Server_Client_Communication_In_C",
 					"targetIndexes" : 
 					[
 						0
@@ -38,9 +38,9 @@
 			[
 				{
 					"directoryIndex" : 0,
-					"id" : "Server_Clien_Communication_In_C::@6890427a1f51a3e7e1df",
-					"jsonFile" : "target-Server_Clien_Communication_In_C-Debug-8a5848721da056cef6cf.json",
-					"name" : "Server_Clien_Communication_In_C",
+					"id" : "Server_Client_Communication_In_C::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-Server_Client_Communication_In_C-Debug-052855fc4196f45c03e9.json",
+					"name" : "Server_Client_Communication_In_C",
 					"projectIndex" : 0
 				}
 			]

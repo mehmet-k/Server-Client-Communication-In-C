@@ -1,6 +1,13 @@
 cmake_minimum_required(VERSION 3.21)
-project(Server_Clien_Communication_In_C C)
+project(Server_Client_Communication_In_C C)
 
-set(CMAKE_C_STANDARD 99)
+set(CMAKE_C_STANDARD 11)
 
-add_executable(Server_Clien_Communication_In_C main.c)
+include_directories(headers)
+
+add_executable(Server_Client_Communication_In_C
+        headers/hashTable.h
+        headers/userFileManagement.h
+        headers/userManagementUtil.h
+        client.c
+        main.c)

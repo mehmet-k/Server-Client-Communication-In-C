@@ -1,9 +1,0 @@
-# ninja log v5
-2	109	7239442686143585	CMakeFiles/Server_Clien_Communication_In_C.dir/main.c.obj	c4a231a6832599d5
-109	243	7239442687448809	Server_Clien_Communication_In_C.exe	22662c4826abaabe
-3	206	7240110732633124	CMakeFiles/Server_Clien_Communication_In_C.dir/main.c.obj	aca0ae8775104622
-206	423	7240110734766434	Server_Clien_Communication_In_C.exe	22662c4826abaabe
-2	125	7240113014955306	CMakeFiles/Server_Clien_Communication_In_C.dir/main.c.obj	aca0ae8775104622
-125	352	7240113017177790	Server_Clien_Communication_In_C.exe	22662c4826abaabe
-2	131	7240118844386269	CMakeFiles/Server_Clien_Communication_In_C.dir/main.c.obj	aca0ae8775104622
-132	262	7240118845558524	Server_Clien_Communication_In_C.exe	22662c4826abaabe

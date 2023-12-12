@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/Server-Clien-Communication-In-C.iml" filepath="$PROJECT_DIR$/.idea/Server-Clien-Communication-In-C.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/Server-Client-Communication-In-C.iml" filepath="$PROJECT_DIR$/.idea/Server-Client-Communication-In-C.iml" />
     </modules>
   </component>
 </project>
