@@ -5,12 +5,23 @@
 
 #define BUFFER_SIZE 255
 
+typedef struct contact_node{
+    char * userName;
+    char * phoneNumber;
+}CONTACT_NODE;
+
+typedef struct contact_node_array{
+    CONTACT_NODE * array;
+    int arraySize;
+}CONTACT_NODE_ARRAY;
+
 typedef struct user_table_node{
     char* userName;
     char* password;
     char* telephoneNumber;
     char* name;
     char* surname;
+    CONTACT_NODE_ARRAY contacts;
     int isDeleted;
 }USER_TABLE_NODE;
 
@@ -25,6 +36,7 @@ typedef struct user_table_node_buffer{
 typedef struct user_table{
     USER_TABLE_NODE * table;
     int tableSize;
+    int elementCount;
 }USER_TABLE;
 
 //print table 
@@ -68,6 +80,10 @@ USER_TABLE_NODE* initializeTable(USER_TABLE_NODE*table, int M){
     for(i=0;i<M;i++){
         table[i].password = NULL;
         table[i].userName = NULL;
+        table[i].telephoneNumber = NULL;
+        table[i].name = NULL;
+        table[i].surname = NULL;
+        table[i].contacts.array = NULL;
         table[i].isDeleted = 0;
     }
     return table;
@@ -79,6 +95,7 @@ USER_TABLE_NODE* initializeTable(USER_TABLE_NODE*table, int M){
 //return: tablo, M(table size)
 USER_TABLE * createTable(USER_TABLE *TABLE, float loadfactor, int N){
     TABLE = (USER_TABLE*) calloc(1,sizeof (USER_TABLE));
+    TABLE->elementCount = 0;
     TABLE->tableSize = findSuitablePrimeNumber((float)N,loadfactor);
     TABLE->table =  initializeTable(TABLE->table,TABLE->tableSize);
     return TABLE;
@@ -124,7 +141,7 @@ unsigned long long numerizeUserName(char userName[]){
 //call traverseTable function depending on mod
 //mod = 1 normal 
 //mod = 2 debug 
-int traverseTable(USER_TABLE *TABLE, char userName[]){
+int traverseTable(USER_TABLE *TABLE, char *userName){
     unsigned long long numerizedUserName = numerizeUserName(userName);
     USER_TABLE_NODE * table = TABLE->table;
     int i;
@@ -148,16 +165,16 @@ int initializeElement(USER_TABLE_NODE* table, USER_TABLE_NODE_BUFFER userInforma
     strcpy(table[i].userName,userInformations.userName);
 
     table[i].password = (char*)calloc(strlen(userInformations.password),sizeof (char));
-    strcpy(table[i].userName,userInformations.password);
+    strcpy(table[i].password,userInformations.password);
 
-    table[i].password = (char*)calloc(strlen(userInformations.telephoneNumber),sizeof (char));
-    strcpy(table[i].userName,userInformations.telephoneNumber);
+    table[i].telephoneNumber = (char*)calloc(strlen(userInformations.telephoneNumber),sizeof (char));
+    strcpy(table[i].telephoneNumber,userInformations.telephoneNumber);
 
-    table[i].password = (char*)calloc(strlen(userInformations.name),sizeof (char));
-    strcpy(table[i].userName,userInformations.name);
+    table[i].name = (char*)calloc(strlen(userInformations.name),sizeof (char));
+    strcpy(table[i].name,userInformations.name);
 
-    table[i].password = (char*)calloc(strlen(userInformations.surname),sizeof (char));
-    strcpy(table[i].userName,userInformations.surname);
+    table[i].surname = (char*)calloc(strlen(userInformations.surname),sizeof (char));
+    strcpy(table[i].surname,userInformations.surname);
 
     table[i].isDeleted = 0;
 
@@ -170,6 +187,7 @@ int addElementToTable(USER_TABLE *TABLE, USER_TABLE_NODE_BUFFER userInformations
     USER_TABLE_NODE * table = TABLE->table;
     int i = traverseTable(TABLE,userInformations.userName);
     if(table[i].userName == NULL){ //if userName at location i is NULL, place the user here
+        TABLE->elementCount++;
         return initializeElement(table,userInformations,i);
     }
     else if(strcmp(table[i].userName,userInformations.userName)==0){
@@ -199,6 +217,7 @@ USER_TABLE_NODE * removeElementFromTable(USER_TABLE *TABLE,char* userName){
     USER_TABLE_NODE * table=TABLE->table;
     int i = traverseTable(TABLE,userName);
     if(table[i].userName!=NULL && strcmp(userName,table[i].userName)==0 && table[i].isDeleted == 0){
+        TABLE->elementCount--;
         table[i].isDeleted = 1;
         return &table[i];
     }

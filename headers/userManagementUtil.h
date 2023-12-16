@@ -1,4 +1,3 @@
-
 #include "userFileManagement.h"
 
 //-1 user doesn't exist
@@ -17,15 +16,24 @@ int checkCredientials(USER_TABLE*TABLE,char*userName,char*password){
 //-2 couldn't add to user table
 //-3 couldn't write to the file
 //0 success
-int createNewUser(USER_TABLE* TABLE,USER_TABLE_NODE_BUFFER userInfo){
+int addNewUser(USER_TABLE* TABLE,USER_TABLE_NODE_BUFFER userInfo){
     if(addElementToTable(TABLE,userInfo)<0){
         return -2;
     }
     //couldn't write to the file properly
-    if(writeTableToTXT(TABLE)<0){
-        removeElementFromTable(TABLE,userInfo.userName);
-        return -3;
+    if(TABLE->elementCount == 0){
+        if(writeUserTableToTXT(TABLE)<0){
+            removeElementFromTable(TABLE,userInfo.userName);
+            return -3;
+        }
     }
+    else{
+        if(appendUserInformationToTableTXT(TABLE, findUser(TABLE,userInfo.userName))<0){
+            removeElementFromTable(TABLE,userInfo.userName);
+            return -3;
+        }
+    }
+
     return 0;
 }
 
@@ -35,7 +43,7 @@ int createNewUser(USER_TABLE* TABLE,USER_TABLE_NODE_BUFFER userInfo){
 int removeUser(USER_TABLE * TABLE,char * userName){
     USER_TABLE_NODE * temp = removeElementFromTable(TABLE,userName);
     if(temp==NULL) return -1;
-    else if(writeTableToTXT(TABLE)<0){
+    else if(writeUserTableToTXT(TABLE)<0){
         reAddElementToTable(temp);
         return -2;
     }
