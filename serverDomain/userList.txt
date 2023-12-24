@@ -1,6 +1,3 @@
 hediyeK,password,0554549276,hed,kec
 mehmetK,password,05538386,meh,kec
 alik,password,05336471605,ali,kec
-majaa,1234,533,mdasd,keadf
-sdajaa,1234,533,mdasd,keadf
-name,1234,533,mdasd,keadf
