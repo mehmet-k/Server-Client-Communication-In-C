@@ -1,30 +1,25 @@
 #include <stdio.h>
-
+#include <stdbool.h>
+#include <unistd.h>
+#include <pthread.h>
 #include "headers/IOutil.h"
 
 int main() {
-    USER_TABLE * TABLE=NULL;
-    USER_TABLE_NODE_BUFFER userInfo;
 
+    USER_TABLE * TABLE = NULL;
     TABLE = readUserTableFromTXT(TABLE);
-   // viewTable(TABLE);
-/*
-    getUser(TABLE);
-  
-    TABLE = createTable(TABLE,1,10);
-    
 
-*/
-    strcpy(userInfo.userName, "name");
-    strcpy(userInfo.password, "1234");
-    strcpy(userInfo.telephoneNumber, "533");
-    strcpy(userInfo.name, "mdasd");
-    strcpy(userInfo.surname, "keadf");
-    addNewUser(TABLE,userInfo);
+    /*
+        init server
+    */
 
+    /*
+        listen and manage server here
+    */
 
-    viewTable(TABLE);
-    
+   
+    //int status;
+    //if(status = close(socketID)) printf("unable to close the server!!\n");
     return 0;
 }
 
