@@ -16,7 +16,8 @@ int createUserDirectory(USER_TABLE * TABLE, char *userName){
     if(user==NULL) return -1;
 
     strcat(directory,userName);
-    if(mkdir(directory)) return -2;
+    
+    if(mkdir(directory,0777)) return -2;
 
     return 0;
 }

@@ -1,12 +1,16 @@
 #include "userManagementUtil.h"
 
+void getString(char string[]){
+    if(scanf("%s",string)) printf("scanf error!!\n");
+}
+
 int getUser(USER_TABLE * TABLE){
     USER_TABLE_NODE_BUFFER temp;
     printf("please enter following information:\n");
     printf("your user name: ");
     USER_TABLE_NODE * check=NULL;
     do{
-        scanf("%s",temp.userName);
+        getString(temp.userName);
         if(strcmp("exit",temp.userName)==0) return -1;
         check = findUser(TABLE,temp.userName);
         if(check!=NULL){
@@ -16,11 +20,11 @@ int getUser(USER_TABLE * TABLE){
     check=NULL;
 
     printf("please enter password: ");
-    scanf("%s",temp.password);
+    getString(temp.password);
 
     printf("your telephone number: ");
     do{
-        scanf("%s",temp.telephoneNumber);
+        getString(temp.telephoneNumber);
         if(strcmp("exit",temp.telephoneNumber)==0) return -1;
         //check = findUser(TABLE,temp.userName); //to be implemented later
         check = NULL;
@@ -31,10 +35,11 @@ int getUser(USER_TABLE * TABLE){
     } while (check!=NULL );
 
     printf("please enter your name: ");
-    scanf("%s",temp.name);
+    getString(temp.name);
 
     printf("please enter your surname: ");
-    scanf("%s",temp.surname);
+    getString(temp.surname);
 
     return addNewUser(TABLE,temp);
 }
+
