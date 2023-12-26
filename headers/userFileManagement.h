@@ -143,15 +143,16 @@ int appendUserInformationToTableTXT(USER_TABLE * TABLE, USER_TABLE_NODE * user){
     return 0;
 }
 
-int writeUserContactsToFile(CONTACT_NODE_ARRAY * contacts,char * directory){
+int writeUserContactsToFile(USER_TABLE * contacts,char * directory){
     FILE *fp = fopen("directory", "w");
     if(fp==NULL) {
         fclose(fp);
         return -1;
     }
     int i;
-    for(i=0;i<contacts->arraySize;i++){
-        fprintf(fp,"%s,%s\n",contacts->array[i].userName,contacts->array[i].phoneNumber);
+    for(i=0;i<contacts->elementCount;i++){
+        if(contacts->table[i].userName != NULL && contacts->table[i].isDeleted==0)
+            fprintf(fp,"%s,%s\n",contacts->table[i].userName,contacts->table[i].telephoneNumber);
     }
     fclose(fp);
     return 0;
@@ -164,32 +165,27 @@ int saveUserContacts(USER_TABLE * TABLE, char * userName){
     strcat(directory,userName);
     strcat(directory,"contacts.txt");
     USER_TABLE_NODE * user = findUser(TABLE,userName);
-    writeUserContactsToFile(&user->contacts,directory);
+    writeUserContactsToFile(user->contacts,directory);
     return 0;
 }
 
-int readUserContactsFromFile(CONTACT_NODE_ARRAY * contacts,char * directory){
-    char buffer[BUFFER_SIZE];
-    FILE *fp = fopen("directory", "r");
+int readUserContactsFromFile(USER_TABLE * contacts,char * directory){
+    char buffer[BUFFER_SIZE],* token;
+    createContactTable(contacts);
+    FILE * fp = fopen("directory", "r");
     if(fp==NULL) {
         fclose(fp);
         return -1;
     }
-    int i=0;
+    USER_TABLE_NODE_BUFFER user_buffer;
     while (fgets(buffer,MAX_USERS ,fp)){
-        i++;
-    }
-    contacts->array = (CONTACT_NODE*) calloc(i,sizeof (CONTACT_NODE));
-    fclose(fp);
-    fp = fopen("directory", "r");
-    if(fp==NULL) {
-        fclose(fp);
-        return -1;
-    }
-    i=0;
-    while (fgets(buffer,MAX_USERS ,fp)){
-        contacts->array->userName = (char *) calloc(strlen(buffer),sizeof (char ));
-        strcpy(contacts->array[i].userName, buffer);
+        token = strtok(buffer,",");
+        strcpy(user_buffer.userName,token);
+
+        token = strtok(NULL,",");
+        strcpy(user_buffer.telephoneNumber,token);
+
+        //addElementToContactTable(contacts,NULL);
     }
     fclose(fp);
     return 0;
@@ -202,6 +198,6 @@ int getUserContacts(USER_TABLE *TABLE,char * userName){
     strcat(directory,userName);
     strcat(directory,"contacts.txt");
     USER_TABLE_NODE * user = findUser(TABLE,userName);
-    readUserContactsFromFile(&user->contacts,directory);
+    readUserContactsFromFile(user->contacts,directory);
     return 0;
 }

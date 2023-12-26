@@ -1,0 +1,3 @@
+/home/mehmet/Desktop/Workspace/Server-Client-Communication-In-C/cmake-build-debug/CMakeFiles/Server_Client_Communication_In_C.dir
+/home/mehmet/Desktop/Workspace/Server-Client-Communication-In-C/cmake-build-debug/CMakeFiles/edit_cache.dir
+/home/mehmet/Desktop/Workspace/Server-Client-Communication-In-C/cmake-build-debug/CMakeFiles/rebuild_cache.dir

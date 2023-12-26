@@ -23,16 +23,7 @@ int getUser(USER_TABLE * TABLE){
     getString(temp.password);
 
     printf("your telephone number: ");
-    do{
-        getString(temp.telephoneNumber);
-        if(strcmp("exit",temp.telephoneNumber)==0) return -1;
-        //check = findUser(TABLE,temp.userName); //to be implemented later
-        check = NULL;
-        if(check!=NULL){
-            printf("another user with this phone number already exists!\n"
-                   "please enter a phone number again or type 'exit' to abort: ");
-        }
-    } while (check!=NULL );
+    getString(temp.telephoneNumber);
 
     printf("please enter your name: ");
     getString(temp.name);

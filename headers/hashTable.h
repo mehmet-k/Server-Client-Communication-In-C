@@ -5,6 +5,8 @@
 
 #define BUFFER_SIZE 255
 
+typedef struct user_table_node USER_TABLE_NODE;
+typedef struct user_table USER_TABLE;
 
 typedef struct user_table_node_buffer{
     char userName[BUFFER_SIZE];
@@ -31,8 +33,8 @@ typedef struct user_table{
 }USER_TABLE;
 
 typedef struct contact_node{
-    char * userName;
-    char * phoneNumber;
+    char userName[BUFFER_SIZE];
+    char phoneNumber[BUFFER_SIZE];
 }CONTACT_NODE;
 
 //print table 

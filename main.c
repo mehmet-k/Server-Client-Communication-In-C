@@ -3,7 +3,8 @@
 #include <unistd.h>
 #include <pthread.h>
 #include "headers/IOutil.h"
-#include "socketUtil.h"
+#include "headers/sockUtil.h"
+void * client(USER_TABLE * TABLE);
 
 int main() {
 
@@ -100,7 +101,7 @@ void deleteContact(USER_TABLE_NODE * user){
 }
 
 void openChat(USER_TABLE_NODE * user){
-    char * buffer[BUFFER_SIZE];
+    char buffer[BUFFER_SIZE];
     do{
         printf("Please enter the username of user you want to send message or:\ntype 'back' to return to previous menu");
         scanf("%s",buffer);
@@ -110,7 +111,7 @@ void openChat(USER_TABLE_NODE * user){
         else{
             printf("couldn't find this user in the contact list!\n");
         }
-    }while(strcmp(buffer,'back')!=0);
+    }while(strcmp(buffer,"back")!=0);
 }
 void viewContacts(USER_TABLE_NODE * user){
     viewTable(user->contacts);
@@ -125,7 +126,7 @@ void chats(USER_TABLE * TABLE, USER_TABLE_NODE * user){
         printf("3. Back");
         scanf("%d",&option);
         if(option == 1) openChat(user);
-        else if(option == 2) viewTable(user);
+        else if(option == 2) viewTable(user->contacts);
         else if(option>3 || option < 1) printf("Illegal operation, please try again.\n");
     }while(option!=3);
 }
