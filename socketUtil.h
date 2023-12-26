@@ -43,8 +43,8 @@ int createSocket(SOCKADDR_IN * server){
     return socket_desc;
 }
 
-int connectServer(SOCKADDR_IN * server,int socket_desc){
-    if (connect(socket_desc , (SOCKADDR_IN*)(&server) , sizeof(server)) < 0){
+int connectServer(const SOCKADDR_IN * server,int socket_desc){
+    if (connect(socket_desc , (SOCKADDR_IN*)server , sizeof(server)) < 0){
 		puts("connect error");
 		return 1;
 	}
@@ -53,9 +53,9 @@ int connectServer(SOCKADDR_IN * server,int socket_desc){
     return 0;
 }
 
-int bindSocket(int socket_desc,SOCKADDR_IN server){
+int bindSocket(const SOCKADDR_IN *server, int socket_desc){
     //Bind
-    if( bind(socket_desc,(SOCKADDR_IN *)(&server) , sizeof(server)) < 0){
+    if( bind(socket_desc, (SOCKADDR_IN*)server , sizeof(server)) < 0){
         puts("bind failed");
     }
     puts("bind done");

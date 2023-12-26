@@ -43,3 +43,15 @@ int getUser(USER_TABLE * TABLE){
     return addNewUser(TABLE,temp);
 }
 
+int deleteUser(USER_TABLE * TABLE){
+    USER_TABLE_NODE * temp;
+    printf("Please enter your username and password to confirm deletion:\n");
+    char username[BUFFER_SIZE], password[BUFFER_SIZE];
+    if(checkCredientials(TABLE,username,password,temp)==0){
+        removeUser(TABLE,username);
+        return 0;
+    }
+    else{
+        return -1;
+    }
+}

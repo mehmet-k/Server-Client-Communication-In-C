@@ -5,25 +5,6 @@
 
 #define BUFFER_SIZE 255
 
-typedef struct contact_node{
-    char * userName;
-    char * phoneNumber;
-}CONTACT_NODE;
-
-typedef struct contact_node_array{
-    CONTACT_NODE * array;
-    int arraySize;
-}CONTACT_NODE_ARRAY;
-
-typedef struct user_table_node{
-    char* userName;
-    char* password;
-    char* telephoneNumber;
-    char* name;
-    char* surname;
-    CONTACT_NODE_ARRAY contacts;
-    int isDeleted;
-}USER_TABLE_NODE;
 
 typedef struct user_table_node_buffer{
     char userName[BUFFER_SIZE];
@@ -33,11 +14,26 @@ typedef struct user_table_node_buffer{
     char surname[BUFFER_SIZE];
 }USER_TABLE_NODE_BUFFER;
 
+typedef struct user_table_node{
+    char* userName;
+    char* password;
+    char* telephoneNumber;
+    char* name;
+    char* surname;
+    USER_TABLE * contacts;
+    int isDeleted;
+}USER_TABLE_NODE;
+
 typedef struct user_table{
     USER_TABLE_NODE * table;
     int tableSize;
     int elementCount;
 }USER_TABLE;
+
+typedef struct contact_node{
+    char * userName;
+    char * phoneNumber;
+}CONTACT_NODE;
 
 //print table 
 //inputs : table, table size
@@ -83,7 +79,7 @@ USER_TABLE_NODE* initializeTable(USER_TABLE_NODE*table, int M){
         table[i].telephoneNumber = NULL;
         table[i].name = NULL;
         table[i].surname = NULL;
-        table[i].contacts.array = NULL;
+        table[i].contacts = NULL;
         table[i].isDeleted = 0;
     }
     return table;
@@ -240,6 +236,58 @@ USER_TABLE_NODE * findUser(USER_TABLE *TABLE, char * userName){
         return NULL;
     }
 }
+
+USER_TABLE * createContactTable(USER_TABLE * TABLE){
+    USER_TABLE * CONTACT_TABLE = createTable(CONTACT_TABLE,TABLE->tableSize,1);
+    return CONTACT_TABLE;
+}
+
+USER_TABLE * initContactTable(USER_TABLE * TABLE,USER_TABLE_NODE * user){
+    user->contacts = createContactTable(TABLE);
+    return user->contacts;
+}
+
+//at the index i of the table, initialize userName
+//and assign values userName and isDeleted
+//returns index
+int initializeContactElement(USER_TABLE_NODE* table, CONTACT_NODE userInformations, int i){
+    table[i].userName = (char*)calloc(strlen(userInformations.userName),sizeof (char));
+    strcpy(table[i].userName,userInformations.userName);
+
+    table[i].password = (char*)calloc(strlen(userInformations.phoneNumber),sizeof (char));
+    strcpy(table[i].password,userInformations.phoneNumber);
+
+    table[i].isDeleted = 0;
+
+    return i;
+}
+
+//check if user exists, if not add it to the table
+//if return is not negative, adding user to table was successfull
+int addElementToContactTable(USER_TABLE *TABLE, CONTACT_NODE userInformations){
+    USER_TABLE_NODE * table = TABLE->table;
+    int i = traverseTable(TABLE,userInformations.userName);
+    if(table[i].userName == NULL){ //if userName at location i is NULL, place the user here
+        TABLE->elementCount++;
+        return initializeContactElement(table,userInformations,i);
+    }
+    else if(strcmp(table[i].userName,userInformations.userName)==0){
+        if(table[i].isDeleted==1){ //if user has been deleted before,
+            table[i].isDeleted=0;  //assign it as undeleted.
+            return i;
+        }
+        else{
+            return -1;
+        }
+    }
+    else if(i==TABLE->tableSize){//table full
+        return -2;
+    }
+    else{
+        return -3;
+    }
+}
+
 
 /*
 //recreate the table by getting rid off deleted elements

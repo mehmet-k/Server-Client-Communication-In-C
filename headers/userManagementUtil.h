@@ -3,8 +3,8 @@
 //-1 user doesn't exist
 //-2 wrong password
 //0 creadientials correct
-int checkCredientials(USER_TABLE*TABLE,char*userName,char*password){
-    USER_TABLE_NODE * temp = findUser(TABLE,userName);
+int checkCredientials(USER_TABLE*TABLE,char*userName,char*password,USER_TABLE_NODE * temp){
+    temp = findUser(TABLE,userName);
     if(temp==NULL) return -1;
     else{
         if(strcmp(temp->password,password)!=0) return -2;
