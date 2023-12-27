@@ -2,14 +2,16 @@
 #include <stdlib.h>
 #include <math.h> 
 #include <string.h>
+#include "contacts.h"
 
 #define BUFFER_SIZE 255
+
 
 typedef struct user_table_node USER_TABLE_NODE;
 typedef struct user_table USER_TABLE;
 
 typedef struct user_table_node_buffer{
-    char userName[BUFFER_SIZE];
+    char  userName[BUFFER_SIZE];
     char password[BUFFER_SIZE];
     char telephoneNumber[BUFFER_SIZE];
     char name[BUFFER_SIZE];
@@ -23,6 +25,7 @@ typedef struct user_table_node{
     char* name;
     char* surname;
     USER_TABLE * contacts;
+    CONTACT_NODE * contact_head;
     int isDeleted;
 }USER_TABLE_NODE;
 
@@ -32,21 +35,15 @@ typedef struct user_table{
     int elementCount;
 }USER_TABLE;
 
-typedef struct contact_node{
-    char userName[BUFFER_SIZE];
-    char phoneNumber[BUFFER_SIZE];
-}CONTACT_NODE;
-
 //print table 
 //inputs : table, table size
 int viewTable(USER_TABLE *TABLE){
     if(TABLE==NULL) return -1;
-    USER_TABLE_NODE * table = TABLE->table;
     int M = TABLE->tableSize;
     int i;
     for(i=0;i<M;i++){
-        if(table[i].isDeleted==0 && table[i].userName!=NULL)
-            printf("%d. %s\n",i,table[i].userName);
+        if(TABLE->table[i].isDeleted==0 && TABLE->table[i].userName!=NULL)
+            printf("%d. %s\n",i,TABLE->table[i].userName);
         else
             printf("%d. ------\n",i);
     }
@@ -68,6 +65,7 @@ int findSuitablePrimeNumber(float N,float loadfactor){
     return num;
 }
 
+
 //create table, initalize it's values
 //inputs: pointer of table,table size
 //return: table
@@ -87,6 +85,7 @@ USER_TABLE_NODE* initializeTable(USER_TABLE_NODE*table, int M){
     return table;
 }
 
+
 //create table
 //inputs : table,load factor, number of elements, table size
 //table size will be calculated within findSuitablePrimeNumber;
@@ -97,6 +96,11 @@ USER_TABLE * createTable(USER_TABLE *TABLE, float loadfactor, int N){
     TABLE->tableSize = findSuitablePrimeNumber((float)N,loadfactor);
     TABLE->table =  initializeTable(TABLE->table,TABLE->tableSize);
     return TABLE;
+}
+
+USER_TABLE * createContactTable(USER_TABLE_NODE * user){
+    user->contacts = createTable(user->contacts,1,20);
+    return user->contacts;
 }
 
 //1. hash function
@@ -158,35 +162,41 @@ int traverseTable(USER_TABLE *TABLE, char *userName){
 //at the index i of the table, initialize userName
 //and assign values userName and isDeleted
 //returns index
-int initializeElement(USER_TABLE_NODE* table, USER_TABLE_NODE_BUFFER userInformations, int i){
+int initializeElement(USER_TABLE_NODE* table, USER_TABLE_NODE_BUFFER userInformations, int i,int mod){
     table[i].userName = (char*)calloc(strlen(userInformations.userName),sizeof (char));
     strcpy(table[i].userName,userInformations.userName);
-
-    table[i].password = (char*)calloc(strlen(userInformations.password),sizeof (char));
-    strcpy(table[i].password,userInformations.password);
 
     table[i].telephoneNumber = (char*)calloc(strlen(userInformations.telephoneNumber),sizeof (char));
     strcpy(table[i].telephoneNumber,userInformations.telephoneNumber);
 
-    table[i].name = (char*)calloc(strlen(userInformations.name),sizeof (char));
-    strcpy(table[i].name,userInformations.name);
-
-    table[i].surname = (char*)calloc(strlen(userInformations.surname),sizeof (char));
-    strcpy(table[i].surname,userInformations.surname);
-
     table[i].isDeleted = 0;
+
+    table[i].contact_head = NULL;
+
+    if(mod==0){
+        table[i].password = (char*)calloc(strlen(userInformations.password),sizeof (char));
+        strcpy(table[i].password,userInformations.password);
+
+        table[i].name = (char*)calloc(strlen(userInformations.name),sizeof (char));
+        strcpy(table[i].name,userInformations.name);
+
+        table[i].surname = (char*)calloc(strlen(userInformations.surname),sizeof (char));
+        strcpy(table[i].surname,userInformations.surname);
+
+        //table[i].contacts = createContactTable(&table[i]);
+    }
 
     return i;
 }
 
 //check if user exists, if not add it to the table
 //if return is not negative, adding user to table was successfull
-int addElementToTable(USER_TABLE *TABLE, USER_TABLE_NODE_BUFFER userInformations){
+int addElementToTable(USER_TABLE *TABLE, USER_TABLE_NODE_BUFFER userInformations,int mod){
     USER_TABLE_NODE * table = TABLE->table;
     int i = traverseTable(TABLE,userInformations.userName);
     if(table[i].userName == NULL){ //if userName at location i is NULL, place the user here
         TABLE->elementCount++;
-        return initializeElement(table,userInformations,i);
+        return initializeElement(table,userInformations,i,mod);
     }
     else if(strcmp(table[i].userName,userInformations.userName)==0){
         if(table[i].isDeleted==1){ //if user has been deleted before,
@@ -236,57 +246,6 @@ USER_TABLE_NODE * findUser(USER_TABLE *TABLE, char * userName){
     }
     else{
         return NULL;
-    }
-}
-
-USER_TABLE * createContactTable(USER_TABLE * TABLE){
-    USER_TABLE * CONTACT_TABLE = createTable(CONTACT_TABLE,TABLE->tableSize,1);
-    return CONTACT_TABLE;
-}
-
-USER_TABLE * initContactTable(USER_TABLE * TABLE,USER_TABLE_NODE * user){
-    user->contacts = createContactTable(TABLE);
-    return user->contacts;
-}
-
-//at the index i of the table, initialize userName
-//and assign values userName and isDeleted
-//returns index
-int initializeContactElement(USER_TABLE_NODE* table, CONTACT_NODE userInformations, int i){
-    table[i].userName = (char*)calloc(strlen(userInformations.userName),sizeof (char));
-    strcpy(table[i].userName,userInformations.userName);
-
-    table[i].password = (char*)calloc(strlen(userInformations.phoneNumber),sizeof (char));
-    strcpy(table[i].password,userInformations.phoneNumber);
-
-    table[i].isDeleted = 0;
-
-    return i;
-}
-
-//check if user exists, if not add it to the table
-//if return is not negative, adding user to table was successfull
-int addElementToContactTable(USER_TABLE *TABLE, CONTACT_NODE userInformations){
-    USER_TABLE_NODE * table = TABLE->table;
-    int i = traverseTable(TABLE,userInformations.userName);
-    if(table[i].userName == NULL){ //if userName at location i is NULL, place the user here
-        TABLE->elementCount++;
-        return initializeContactElement(table,userInformations,i);
-    }
-    else if(strcmp(table[i].userName,userInformations.userName)==0){
-        if(table[i].isDeleted==1){ //if user has been deleted before,
-            table[i].isDeleted=0;  //assign it as undeleted.
-            return i;
-        }
-        else{
-            return -1;
-        }
-    }
-    else if(i==TABLE->tableSize){//table full
-        return -2;
-    }
-    else{
-        return -3;
     }
 }
 

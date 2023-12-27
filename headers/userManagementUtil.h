@@ -17,7 +17,7 @@ int checkCredientials(USER_TABLE*TABLE,char*userName,char*password,USER_TABLE_NO
 //-3 couldn't write to the file
 //0 success
 int addNewUser(USER_TABLE* TABLE,USER_TABLE_NODE_BUFFER userInfo){
-    if(addElementToTable(TABLE,userInfo)<0){
+    if(addElementToTable(TABLE,userInfo,0)<0){
         return -2;
     }
     //couldn't write to the file properly

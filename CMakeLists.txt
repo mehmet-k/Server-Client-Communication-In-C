@@ -3,4 +3,5 @@ project(Server_Client_Communication_In_C C)
 
 set(CMAKE_C_STANDARD 11)
 
-add_executable(Server_Client_Communication_In_C main.c)
+add_executable(Server_Client_Communication_In_C main.c
+        headers/contacts.h)
