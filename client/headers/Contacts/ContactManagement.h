@@ -1,8 +1,0 @@
-
-void addContact(){
-
-}
-
-void removeContact(){
-
-}
